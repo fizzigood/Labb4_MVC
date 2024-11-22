@@ -12,7 +12,7 @@ namespace Labb4_MVC.Models
 
         public string Author { get; set; }
 
-        public bool IsReturned { get; set; } = false;
+        public bool IsReturned { get; set; } = true;
 
         public List<Loan> Loans { get; set; } = new();
     }

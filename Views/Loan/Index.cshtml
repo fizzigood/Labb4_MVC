@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Labb4_MVC.Models.Loan>
+
+@{
+    ViewData["Title"] = "Loans";
+}
+
+<h1>Loans</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Book Title</th>
+            <th>Customer Name</th>
+            <th>Loan Date</th>
+            <th>Return Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var loan in Model)
+        {
+            <tr>
+                <td>@loan.Book.Title</td>
+                <td>@loan.Customer.Name</td>
+                <td>@loan.LoanDate.ToShortDateString()</td>
+                <td>@loan.ReturnDate?.ToShortDateString() ?? "Not Returned"</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@loan.LoanId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@loan.LoanId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@loan.LoanId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">Create New Loan</a>

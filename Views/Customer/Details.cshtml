@@ -29,6 +29,45 @@
             @Model.PhoneNumber
         </dd>
     </dl>
+    @* lånade böcker *@
+    <h4>Borrowed Books</h4>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Borrowed
+                </th>
+                <th>
+                    Customer
+                </th>
+                <th>
+                    Returned
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Loans)
+            {
+                <tr>
+                    <td>
+                        @item.Book.Title
+                    </td>
+                    <td>
+                        @item.LoanDate
+                    </td>
+                    <td>
+                        @item.Customer.Name
+                    </td>
+                    <td>
+                        @item.ReturnDate
+                    </td>
+                </tr>
+            }
+        </tbody>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.CustomerId">Edit</a> |

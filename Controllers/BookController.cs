@@ -116,7 +116,7 @@ namespace Labb4_MVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // Hjälpmetod för att kontrollera om en bok finns
+        // Helper method to check if a book exists
         private bool BookExists(int id)
         {
             return _context.Books.Any(b => b.BookId == id);
